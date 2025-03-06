@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+# Install Node.js dependencies and launch the web server.
+cd frontend/
+npm install
+echo ""
+echo "⚠️  Important: Your OpenAI API key must have available credits for AI Assistant to work properly."
+echo "    Visit https://platform.openai.com/account/billing to check or add credits."
+echo ""
+echo "     Starting AI Assistant webapp..."
+echo ""
+echo "Visit http://localhost:3000/documents/ in your browser"
+echo ""
+npm start
