@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   ai-assistant:
-    image: pspdfkit/ai-assistant:1.2.0
+    image: pspdfkit/ai-assistant:1.3.0
     environment:
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       DE_URL: http://pspdfkit:5000
