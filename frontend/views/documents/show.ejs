@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.cloud.pspdfkit.com/pspdfkit-web@1.11.0/nutrient-viewer.js"></script>
+    <title>AI Assistant Example App</title>
+    <link rel='stylesheet' href='/style.css' />
+</head>
+<body class="container">
+    <!-- Element where PSPDFKit will be mounted. -->
+    <div id="pspdfkit" style="width: 100vw; height: 100vh"></div>
+    <!-- Initialize PSPDFKit. -->
+    <script>
+        // Generate a random session ID on every page load
+        const sessionId = crypto.randomUUID ? crypto.randomUUID() :
+            'session-' + Date.now() + '-' + Math.random().toString(36).substring(2, 15);
+
+        PSPDFKit.load({
+            document: "/samples/example.pdf",
+            container: "#pspdfkit",
+            instant: false,
+            toolbarItems: [...PSPDFKit.defaultToolbarItems, { type: "ai-assistant" }],
+            aiAssistant: {
+                sessionId: sessionId,
+                jwt: "<%= aiJwt %>",
+                backendUrl: 'http://localhost:4000/',
+            },
+        })
+            .then(function(instance) {
+                console.log("PSPDFKit loaded", instance);
+            })
+            .catch(function(error) {
+                console.error(error.message);
+            });
+    </script>
+</body>
