@@ -1,34 +1,53 @@
-# 🤖 AI Assistant for PSPDFKit Demo (with Document Engine support)
+# Nutrient AI Document Assistant — Document Engine Mode
 
-This project demonstrates the functionality of Nutrient AI Assistant, with documents backed by [Nutrient Document Engine](https://www.nutrient.io/sdk/document-engine). The AI-powered assistant enhances PDF document workflows by offering intelligent document analysis and interaction, leveraging Nutrient for seamless PDF handling and processing.
+> AI-powered document interaction backed by [Nutrient Document Engine](https://www.nutrient.io/sdk/document-engine) for server-side document management.
 
-## Setup
+This variant adds Document Engine for centralized document storage, processing, and multi-user collaboration. Documents are uploaded to and served from Document Engine rather than loaded as static files.
 
-### Requirements
+For the standalone version (no Document Engine), see the [parent directory](../README.md).
 
-- [Docker Compose version 3.8+](https://docs.docker.com/compose/install/)
-- [Node version 20+](https://nodejs.org/en)
-- [OpenAI API Key](https://openai.com/api/)
+## Quick Start
 
-### Getting Started
+### Prerequisites
 
-Clone this repository to a folder on your computer and then run these commands in your terminal:
+- [Docker Compose](https://docs.docker.com/compose/install/) (v2+)
+- [Node.js](https://nodejs.org/) (v20+)
+- [OpenAI API Key](https://platform.openai.com/api-keys) with available credits
 
-```shell
-export OPENAI_API_KEY="your-openai-api-key"
-docker-compose up -d
-```
+### Setup
 
-When the AI Assistant is ready to use, you will see `info: AI Assistant started -` in the `ai-assistant` container logs. Then, run this command in your terminal to start the sample AI Assistant web application:
+```bash
+cd document-engine/
 
-```shell
+export OPENAI_API_KEY="sk-your-key-here"
+
+# Start AI Assistant + Document Engine + PostgreSQL
+docker compose up -d
+
+# Upload sample document and start the frontend
 ./start
 ```
 
-Head over to URL listed on the command line, where you'll see a PDF loaded in PSPDFKit for Web, our document viewer. Click on the AI Assistant toolbar icon (star) to start interacting with your document in an entirely new way, using natural language commands.
+Open the URL shown in the terminal. Click the ⭐ **AI Assistant** toolbar button to start interacting with your document.
 
-![Screenshot-of-Nutrient-AI-Assistant](assets/AI-Assistant-overview.png)
+![Screenshot of Nutrient AI Assistant](assets/AI-Assistant-overview.png)
 
-## Contact Us
+## Architecture
 
-Excited about the possibilities of this new technology? [Contact us](https://pspdfkit.com/sales/form) to discuss how you can integrate it into your workflows and purchase a license after evaluation.
+This mode runs three services:
+
+| Service | Description | Port |
+|---|---|---|
+| **AI Assistant** | Document processing + AI chat backend | 4000 |
+| **Document Engine** | Server-side document storage and processing | 5000 |
+| **PostgreSQL** | pgvector for embeddings + document metadata | 5432 |
+
+## Learn More
+
+- [AI Document Assistant docs](https://www.nutrient.io/guides/ai/)
+- [Document Engine docs](https://www.nutrient.io/guides/document-engine/)
+- [Contact Sales](https://www.nutrient.io/contact-sales)
+
+---
+
+*Built by [Nutrient](https://www.nutrient.io) — The Document Company.*
