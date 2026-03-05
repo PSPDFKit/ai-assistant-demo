@@ -31,6 +31,22 @@ Head over to URL listed on the command line, where you'll see a PDF loaded in th
 
 ![Screenshot-of-Nutrient-AI-Assistant](assets/AI-Assistant-overview.png)
 
+## Framework Quickstarts
+
+Framework-oriented examples are available in [`framework-examples/`](./framework-examples/README.md):
+
+- [OpenAI Agents quickstart](./framework-examples/openai-agents.mjs)
+- [LangChain quickstart](./framework-examples/langchain.mjs)
+- [CrewAI quickstart](./framework-examples/crewai.py)
+
+Syntax-check commands:
+
+```shell
+node --check framework-examples/openai-agents.mjs
+node --check framework-examples/langchain.mjs
+python3 -m py_compile framework-examples/crewai.py
+```
+
 ## Contact Us
 
 Excited about the possibilities of this new technology? [Contact us](https://www.nutrient.io/contact-sales) to discuss how you can integrate it into your workflows and purchase a license after evaluation.
