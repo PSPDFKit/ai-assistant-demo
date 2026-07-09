@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   ai-assistant:
-    image: pspdfkit/ai-assistant:2.2.0
+    image: pspdfkit/ai-assistant:2.3.0
     environment:
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       PGUSER: db-user
